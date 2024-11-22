@@ -33,9 +33,11 @@ import {
     FcComboChart,
 } from "react-icons/fc";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import useUserStore from "../../stores/user";
-import useDarkMode from "../../stores/useDarkMode";
+import useUserStore from "../../stores/user.js";
+import useDarkMode from "../../stores/useDarkMode.js";
 import { ChatPage } from "../Chat/index.js";
+
+import logo from "../../../public/rocket.png";
 
 type TSidebarItem = {
     name: String;
@@ -113,7 +115,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
         >
             <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
                 <Image
-                    src={colors.logo}
+                    src={logo}
                     css={{
                         maxHeight: "40px",
                         marginLeft: "auto",
@@ -195,11 +197,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
                 icon={<FiMenu />}
             />
 
-            <Text display={{ base: "flex", md: "none" }} fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-                Logo
-            </Text>
-
-            <HStack spacing={{ base: "0", md: "6" }}>
+            <HStack spacing={{ base: "1", md: "6" }}>
                 <IconButton
                     aria-label="dark mode"
                     bg={colors.bg}

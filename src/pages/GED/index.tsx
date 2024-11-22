@@ -56,20 +56,22 @@ const Conteudo = () => {
         ? data.filter((pasta) => pasta.titulo.toLowerCase().includes(search.toLowerCase()))
         : data;
 
-    if (data.length >= 1)
-        return (
-            <Suspense fallback={<Spinner></Spinner>}>
-                <VStack w="100%" alignItems={"left"}>
-                    <Flex>
-                        <Search search={search} setSearch={setSearch} />
-                        <ModalCreatePasta />
-                    </Flex>
-                    {filteredPastas.map((pasta) => {
+    return (
+        <Suspense fallback={<Spinner></Spinner>}>
+            <VStack w="100%" alignItems={"left"}>
+                <Flex>
+                    <Search search={search} setSearch={setSearch} />
+                    <ModalCreatePasta />
+                </Flex>
+                {filteredPastas.length >= 1 ? (
+                    filteredPastas.map((pasta) => {
                         return <CardPastaGed key={Math.random()} pasta={pasta} />;
-                    })}
-                </VStack>
-            </Suspense>
-        );
-    return <h1>Nenhuma categoria cadastrada no momento</h1>;
+                    })
+                ) : (
+                    <Text textAlign="center">Nenhuma pasta cadastrada no momento</Text>
+                )}
+            </VStack>
+        </Suspense>
+    );
 };
 
