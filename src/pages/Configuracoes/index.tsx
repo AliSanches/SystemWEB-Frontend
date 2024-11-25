@@ -11,11 +11,11 @@ import {
     Box,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import useDarkMode from "../../stores/useDarkMode";
+import useDarkMode from "../../stores/useDarkMode.js";
 import { useState, Suspense, useEffect } from "react";
-import { updateConfigs } from "./api";
+import { updateConfigs } from "./api.js";
 import { useNavigate } from "react-router-dom";
-import { notify } from "../../components/notify";
+import { notify } from "../../components/notify.js";
 import { useSuspenseQuery, useMutation } from "@tanstack/react-query";
 import { useGetConfig } from "./api.js";
 

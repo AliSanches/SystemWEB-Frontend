@@ -10,6 +10,7 @@ export default function Login() {
     const [loading, setLoading] = useState(true);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
     const navigate = useNavigate();
 
     const user = useUserStore();
@@ -65,11 +66,6 @@ export default function Login() {
                             }
                         }}
                     />
-                    <Flex align="center" marginTop="15px">
-                        <Checkbox defaultChecked name="stay-logged-checkbox">
-                            Mantenha-me logado por 7 dias
-                        </Checkbox>
-                    </Flex>
                     <Flex my={3} align="left">
                         <Link color={colors.default}>Esqueci a senha</Link>
                     </Flex>
@@ -85,7 +81,7 @@ export default function Login() {
                     </Button>
                 </Flex>
                 <HStack justifyContent={"center"} alignItems={"center"} marginTop={"auto"} marginBottom="15px">
-                    <Text fontWeight="400" alignSelf="center">
+                    <Text fontWeight="400" fontSize={{ base: "14px", md: "16x" }} alignSelf="center">
                         © Todos os Direitos Reservados - 2024
                     </Text>
                 </HStack>
