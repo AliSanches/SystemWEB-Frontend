@@ -1,10 +1,10 @@
-import { Input, Flex, Image, Text, Button, Link, Divider, Checkbox, Spinner, HStack } from "@chakra-ui/react";
+import { Input, Flex, Image, Text, Button, Link, Divider, Spinner, HStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useUserStore from "../../stores/user";
-import useDarkMode from "../../stores/useDarkMode";
+import useUserStore from "../../stores/user.js";
+import useDarkMode from "../../stores/useDarkMode.js";
 
-import logo from "../../../public/rocket.png";
+import logo from "/rocket.png";
 
 export default function Login() {
     const [loading, setLoading] = useState(true);

@@ -1,6 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login/index";
+import Login from "./pages/Login/index.js";
 import Navigation from "./pages/App";
 import Users from "./pages/Users";
 import Customers from "./pages/Customers/Listing";
@@ -29,6 +29,8 @@ import { SubCategoriaCreate } from "./pages/Anotacoes/SubCategoriaCreate.js";
 import { GoogleSuccess } from "./pages/Agenda/GoogleSuccess.js";
 import { Dashboard } from "./pages/Dashboard/index.js";
 import { GED } from "./pages/GED/index.js";
+
+import "./App.css";
 
 function App() {
     const darkModeOn = useDarkMode((state) => state.colors.darkModeOn);
