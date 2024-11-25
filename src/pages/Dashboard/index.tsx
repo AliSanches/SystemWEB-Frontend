@@ -31,7 +31,7 @@ function StatsCard(props: StatsCardProps) {
     const { title, stat, icon, bg } = props;
     return (
         <Stat
-            px={{ base: 2, md: 4 }}
+            px={{ base: 1, sm: 2, md: 4 }}
             py={"5"}
             shadow={"xl"}
             bg={bg}
@@ -41,14 +41,14 @@ function StatsCard(props: StatsCardProps) {
         >
             <Flex justifyContent={"space-between"}>
                 <Box pl={{ base: 2, md: 4 }}>
-                    <StatLabel fontWeight={"medium"} isTruncated>
+                    <StatLabel fontWeight={"medium"} fontSize={{ base: "14px", sm: "18px" }} isTruncated>
                         {title}
                     </StatLabel>
                     <StatNumber fontSize={"2xl"} fontWeight={"medium"}>
                         {stat}
                     </StatNumber>
                 </Box>
-                <Box my={"auto"} color={"whitesmoke"} alignContent={"center"}>
+                <Box color={"whitesmoke"} alignContent={"center"}>
                     {icon}
                 </Box>
             </Flex>
@@ -85,10 +85,10 @@ const DashboardData = () => {
 
     return (
         <Box maxW="7xl" mx={"auto"} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
-            <chakra.h1 textAlign={"center"} fontSize={"4xl"} pb={10} fontWeight={"bold"}>
-                Acompanhe aqui um resumo do sistema,
+            <chakra.h1 textAlign={"center"} fontSize={{ base: "22px", sm: "4xl" }} pb={10} fontWeight={"bold"}>
+                RESUMO DO SISTEMA
             </chakra.h1>
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, lg: 8 }}>
+            <SimpleGrid columns={{ base: 1, xl: 3 }} spacing={{ base: 5, lg: 8 }}>
                 <StatsCard
                     bg="#673bb7"
                     title={"Usuários em uso"}
