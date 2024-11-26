@@ -1,4 +1,4 @@
-import useDarkMode from "../../../stores/useDarkMode";
+import useDarkMode from "../../../stores/useDarkMode.js";
 import { Stack, InputGroup, InputLeftElement, Input, InputRightElement, IconButton } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { FiX, FiRefreshCw } from "react-icons/fi";
@@ -14,7 +14,7 @@ export const Search = ({ setNumber, search, setSearch, loadData }: SearchProps) 
     const colors = useDarkMode((state) => state.colors);
 
     return (
-        <Stack flexDir="row" alignItems="center">
+        <Stack flexDir="row" alignItems="center" mr={{ base: 2, sm: 0 }}>
             <InputGroup size="sm">
                 <InputLeftElement>
                     <SearchIcon />

@@ -1,13 +1,13 @@
 import { VStack, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Text, Flex, Spinner } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import useDarkMode from "../../../stores/useDarkMode";
+import useDarkMode from "../../../stores/useDarkMode.js";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
-import { listCustomers } from "./api";
-import { Search } from "./Search";
-import { CustomerCard } from "./CustomerCard";
-import useUserStore from "../../../stores/user";
-import { AccessDenied } from "../../../components/AccessDenied";
+import { listCustomers } from "./api.js";
+import { Search } from "./Search.js";
+import { CustomerCard } from "./CustomerCard.js";
+import useUserStore from "../../../stores/user.js";
+import { AccessDenied } from "../../../components/AccessDenied.js";
 
 export default function Customers(): JSX.Element {
     const colors = useDarkMode((state) => state.colors);
@@ -85,32 +85,40 @@ export default function Customers(): JSX.Element {
                         <Spinner color={colors.default} size="lg" />
                     </Flex>
                 ) : (
-                    <>
+                    <Flex
+                        flexDirection={{ base: "column", lg: "column" }}
+                        flexFlow={"wrap"}
+                        justifyContent={"center"}
+                        width={{ sm: "90%", lg: "100%" }}
+                        gap={5}
+                    >
                         {customers.map((customer) => {
                             return <CustomerCard key={Math.random()} customer={customer} />;
                         })}
-                        {loadingMore ? (
-                            <Spinner color={colors.default} alignSelf="center" size="lg" />
-                        ) : (
-                            <>
-                                <Text whiteSpace="nowrap">
-                                    {customers.length > 0 ? "1" : "0"} a {customers.length} de {count}
-                                </Text>
-                                <Button
-                                    size="sm"
-                                    colorScheme={"linkedin"}
-                                    width="fit-content"
-                                    alignSelf="center"
-                                    onClick={loadMore}
-                                >
-                                    {count - customers.length < 5 && count - customers.length > 0
-                                        ? `Carregar +${count - customers.length}`
-                                        : count - customers.length == 0
-                                        ? "Nada a carregar"
-                                        : "Carregar +5"}
-                                </Button>
-                            </>
-                        )}
+                    </Flex>
+                )}
+                {loadingMore ? (
+                    <Spinner color={colors.default} alignSelf="center" size="lg" />
+                ) : (
+                    <>
+                        <Flex alignItems={"center"} gap={3} my={5}>
+                            <Text textAlign={"center"}>
+                                {customers.length > 0 ? "1" : "0"} a {customers.length} de {count}
+                            </Text>
+                            <Button
+                                size="sm"
+                                colorScheme={"linkedin"}
+                                width="fit-content"
+                                alignSelf="center"
+                                onClick={loadMore}
+                            >
+                                {count - customers.length < 5 && count - customers.length > 0
+                                    ? `Carregar +${count - customers.length}`
+                                    : count - customers.length == 0
+                                    ? "Nada a carregar"
+                                    : "Carregar +5"}
+                            </Button>
+                        </Flex>
                     </>
                 )}
             </VStack>
