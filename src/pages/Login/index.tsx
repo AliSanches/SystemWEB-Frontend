@@ -81,7 +81,7 @@ export default function Login() {
                     </Button>
                 </Flex>
                 <HStack justifyContent={"center"} alignItems={"center"} marginTop={"auto"} marginBottom="15px">
-                    <Text fontWeight="400" fontSize={{ base: "14px", md: "16x" }} alignSelf="center">
+                    <Text fontWeight="400" fontSize={{ base: "12px", md: "16x" }} alignSelf="center">
                         © Todos os Direitos Reservados - 2024
                     </Text>
                 </HStack>
