@@ -55,7 +55,7 @@ const ConfirmDeletion = ({ entity, text, handleDeletion, mt }) => {
                 </ModalContent>
             </Modal>
 
-            <Button colorScheme={"red"} onClick={onOpen} ml={"auto"} size="sm" mt={mt}>
+            <Button colorScheme={"red"} onClick={onOpen} ml={{ base: "0", sm: "auto" }} size="sm" mt={mt}>
                 Deletar
             </Button>
         </>

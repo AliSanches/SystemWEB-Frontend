@@ -1,11 +1,11 @@
 import { VStack, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Spinner, HStack, Text } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import useDarkMode from "../../stores/useDarkMode";
-import { listAllServices } from "./api";
+import useDarkMode from "../../stores/useDarkMode.js";
+import { listAllServices } from "./api.js";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { ServiceCard } from "./ServiceCard";
-import useUserStore from "../../stores/user";
+import { ServiceCard } from "./ServiceCard.js";
+import useUserStore from "../../stores/user.js";
 
 export const Services = () => {
     const colors = useDarkMode((state) => state.colors);
