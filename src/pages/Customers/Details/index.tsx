@@ -90,7 +90,7 @@ const TabCreator = () => {
 
     return (
         <Tabs size="sm" isLazy={true} variant="enclosed-colored">
-            <TabList>
+            <TabList display={"flex"} flexDirection={{ base: "column", md: "initial" }}>
                 {tabs.map((tab, index) => (
                     <Tab key={index}>{tab.label}</Tab>
                 ))}
