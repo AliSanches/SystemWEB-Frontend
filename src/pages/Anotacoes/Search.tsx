@@ -1,7 +1,7 @@
-import useDarkMode from "../../stores/useDarkMode";
+import useDarkMode from "../../stores/useDarkMode.js";
 import { Stack, InputGroup, InputLeftElement, Input, InputRightElement, IconButton } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import { FiX } from "react-icons/fi";
+import { FiX } from "react-icons/fi/index.js";
 
 type SearchProps = {
     setSkip: React.Dispatch<React.SetStateAction<number>>;

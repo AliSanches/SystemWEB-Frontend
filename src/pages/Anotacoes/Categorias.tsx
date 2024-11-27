@@ -11,13 +11,13 @@ import {
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import React from "react";
-import { CategoriaCard } from "./CategoriaCard";
-import { listaCategorias } from "./api";
+import { CategoriaCard } from "./CategoriaCard.js";
+import { listaCategorias } from "./api.js";
 import { Outlet, useNavigate } from "react-router-dom";
-import useDarkMode from "../../stores/useDarkMode";
-import { CategoriaSearch } from "./CategoriaSearh";
-import { AccessDenied } from "../../components/AccessDenied";
-import useUserStore from "../../stores/user";
+import useDarkMode from "../../stores/useDarkMode.js";
+import { CategoriaSearch } from "./CategoriaSearh.js";
+import { AccessDenied } from "../../components/AccessDenied.js";
+import useUserStore from "../../stores/user.js";
 
 export const Categorias = () => {
     const [loading, setLoading] = React.useState(true);
@@ -100,12 +100,24 @@ export const Categorias = () => {
                 </BreadcrumbItem>
             </Breadcrumb>
 
-            <HStack mt={3} mb={3} width={"100%"} justifyContent={"space-between"}>
+            <HStack
+                mt={3}
+                mb={3}
+                width={"100%"}
+                justifyContent={"space-between"}
+                flexDirection={{ base: "column", sm: "row" }}
+            >
                 <CategoriaSearch setSkip={setSkip} search={search} setSearch={setSearch} />
-                <Box>
+                <Box
+                    display={"flex"}
+                    justifyContent={"center"}
+                    flexDirection={{ base: "column", sm: "row" }}
+                    textAlign={"center"}
+                    gap={1}
+                >
                     {permissions.anotacoes === 2 && (
                         <Button
-                            marginRight={5}
+                            mr={{ base: 0, sm: 5 }}
                             size="sm"
                             colorScheme={"linkedin"}
                             onClick={() => navigate("/app/anotacoes/categorias/subcategoria/cadastro")}

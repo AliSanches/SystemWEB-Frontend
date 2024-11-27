@@ -2,15 +2,15 @@ import React from "react";
 import "suneditor/dist/css/suneditor.min.css";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, HStack, Spinner, Text, VStack } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import { Search } from "./Search";
-import { AnotacaoCard } from "./AnotacaoCard";
+import { Search } from "./Search.js";
+import { AnotacaoCard } from "./AnotacaoCard.js";
 import { useNavigate } from "react-router-dom";
-import { FcList } from "react-icons/fc";
-import { listaAnotacoes } from "./api";
-import useDarkMode from "../../stores/useDarkMode";
-import { notify } from "../../components/notify";
-import useUserStore from "../../stores/user";
-import { AccessDenied } from "../../components/AccessDenied";
+import { FcList } from "react-icons/fc/index.js";
+import { listaAnotacoes } from "./api.js";
+import useDarkMode from "../../stores/useDarkMode.js";
+import { notify } from "../../components/notify.js";
+import useUserStore from "../../stores/user.js";
+import { AccessDenied } from "../../components/AccessDenied.js";
 
 export const Anotacoes = () => {
     const [search, setSearch] = React.useState("");
@@ -96,9 +96,15 @@ export const Anotacoes = () => {
                 </BreadcrumbItem>
             </Breadcrumb>
 
-            <HStack mb={3} mt={3}>
+            <HStack mb={3} mt={3} display={{ base: "flex" }} flexDirection={{ base: "column", sm: "row" }}>
                 <Search search={search} setSearch={setSearch} setSkip={setSkip} />
-                <Button size="sm" ml={"auto"} mr={2} columnGap={1} onClick={() => navigate("categorias")}>
+                <Button
+                    size="sm"
+                    ml={{ base: "0", sm: "auto" }}
+                    mr={2}
+                    columnGap={1}
+                    onClick={() => navigate("categorias")}
+                >
                     <FcList />
                     Categorias
                 </Button>
