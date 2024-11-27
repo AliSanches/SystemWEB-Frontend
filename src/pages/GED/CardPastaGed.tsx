@@ -27,16 +27,24 @@ export const CardPastaGed = ({ pasta }) => {
     return (
         <Accordion defaultIndex={[1]} allowMultiple>
             <AccordionItem bg={colors.bg}>
-                <HStack w="100%" borderRadius="5px" bg={colors.bg} padding="15px">
-                    <Flex alignItems="left" justifyContent="space-between" textAlign="left" rowGap="0" w="100%" gap={3}>
-                        <Flex gap={3} fontSize={28}>
-                            <FcOpenedFolder />
-                            <Text fontSize="md" w={200}>
-                                {pasta.titulo}
-                            </Text>
-                        </Flex>
-
-                        <Flex gap={5}>
+                <HStack
+                    borderRadius="5px"
+                    bg={colors.bg}
+                    padding="15px"
+                    alignItems="left"
+                    justifyContent="space-between"
+                    textAlign="left"
+                    rowGap="0"
+                    gap={3}
+                    display={"flex"}
+                    flexDirection={"column"}
+                >
+                    <Flex gap={3} fontSize={28}>
+                        <FcOpenedFolder />
+                        <Text fontSize="md" w={200}>
+                            {pasta.titulo}
+                        </Text>
+                        <Flex ml={"auto"} gap={{ base: 2 }}>
                             <ModalCreateDocument pasta={pasta} />
                             <ModalDeletePasta pasta={pasta} />
                         </Flex>
