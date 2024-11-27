@@ -14,7 +14,7 @@ import { getFilterPasta } from "./api.js";
 import { TableArquivos } from "./TableArquivos.js";
 import { ModalDeletePasta } from "./ModalDeletePasta.js";
 import { ModalCreateDocument } from "./ModalCreateDocument.js";
-import { FcOpenedFolder } from "react-icons/fc";
+import { FcOpenedFolder } from "react-icons/fc/index.js";
 
 export const CardPastaGed = ({ pasta }) => {
     const colors = useDarkMode((state) => state.colors);

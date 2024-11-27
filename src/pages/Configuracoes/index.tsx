@@ -80,8 +80,8 @@ const CompanyData = () => {
                     onChange={(event) => formReducer("empresa", event.target.value)}
                 />
 
-                <Flex flexWrap="wrap" justifyContent="flex-start" width="100%" marginTop="10px" gap={5}>
-                    <Box minW={320} flex={3}>
+                <Flex flexWrap="wrap" justifyContent="flex-start" marginTop="10px" gap={5}>
+                    <Box minW={{ base: "260px", sm: "260px" }} flex={3}>
                         <FormLabel>CNPJ</FormLabel>
                         <Input
                             bg={colors.bg}
@@ -92,7 +92,7 @@ const CompanyData = () => {
                         ></Input>
                     </Box>
 
-                    <Box minW={320} flex={3}>
+                    <Box minW={{ base: "260px", sm: "260px" }} flex={3}>
                         <FormLabel>Razão Social</FormLabel>
                         <Input
                             size="sm"
@@ -102,7 +102,7 @@ const CompanyData = () => {
                         ></Input>
                     </Box>
 
-                    <Box minW={320} flex={3}>
+                    <Box minW={{ base: "260px", sm: "260px" }} flex={3}>
                         <FormLabel>Inscrição Estadual (IE)</FormLabel>
                         <Input
                             size="sm"
@@ -112,7 +112,7 @@ const CompanyData = () => {
                         ></Input>
                     </Box>
 
-                    <Box minW={320} flex={3}>
+                    <Box minW={{ base: "260px", sm: "260px" }} flex={3}>
                         <FormLabel>Inscrição Municipal (IM)</FormLabel>
                         <Input
                             size="sm"
@@ -122,7 +122,7 @@ const CompanyData = () => {
                         ></Input>
                     </Box>
 
-                    <Box minW={320} flex={3}>
+                    <Box minW={{ base: "260px", sm: "260px" }} flex={3}>
                         <FormLabel>Cep</FormLabel>
                         <Input
                             bg={colors.bg}
@@ -133,7 +133,7 @@ const CompanyData = () => {
                         ></Input>
                     </Box>
 
-                    <Box minW={320} flex={3}>
+                    <Box minW={{ base: "260px", sm: "260px" }} flex={3}>
                         <FormLabel>UF</FormLabel>
                         <Input
                             size="sm"
@@ -143,7 +143,7 @@ const CompanyData = () => {
                         ></Input>
                     </Box>
 
-                    <Box minW={320} flex={3}>
+                    <Box minW={{ base: "260px", sm: "260px" }} flex={3}>
                         <FormLabel>Cidade</FormLabel>
                         <Input
                             size="sm"
@@ -153,7 +153,7 @@ const CompanyData = () => {
                         ></Input>
                     </Box>
 
-                    <Box minW={320} flex={3}>
+                    <Box minW={{ base: "260px", sm: "260px" }} flex={3}>
                         <FormLabel>Bairro</FormLabel>
                         <Input
                             size="sm"
@@ -163,7 +163,7 @@ const CompanyData = () => {
                         ></Input>
                     </Box>
 
-                    <Box minW={320} flex={3}>
+                    <Box minW={{ base: "260px", sm: "260px" }} flex={3}>
                         <FormLabel>Rua</FormLabel>
                         <Input
                             size="sm"
