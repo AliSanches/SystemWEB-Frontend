@@ -31,6 +31,7 @@ import {
     FcCalendar,
     FcBullish,
     FcComboChart,
+    FcInspection,
 } from "react-icons/fc";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import useUserStore from "../../stores/user.js";
@@ -82,6 +83,9 @@ const SidebarContent = ({ onClose, ...rest }) => {
         const items = [] as TSidebarItem[];
 
         items.push({ name: "Dashboard", icon: FcBullish, link: "#/app/dashboard" });
+
+        if (permissions.chamados >= 1) items.push({ name: "Chamados", icon: FcInspection, link: "#/app/chamados" });
+
         if (permissions.clientes >= 1) items.push({ name: "Clientes", icon: FcConferenceCall, link: "#/app/clientes" });
         if (permissions.servicos >= 1) items.push({ name: "Serviços", icon: FcSupport, link: "#/app/serviços" });
         if (permissions.usuarios >= 1) items.push({ name: "Usuários", icon: FcPortraitMode, link: "#/app/usuarios" });

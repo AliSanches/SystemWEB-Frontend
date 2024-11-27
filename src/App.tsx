@@ -29,6 +29,7 @@ import { SubCategoriaCreate } from "./pages/Anotacoes/SubCategoriaCreate.js";
 import { GoogleSuccess } from "./pages/Agenda/GoogleSuccess.js";
 import { Dashboard } from "./pages/Dashboard/index.js";
 import { GED } from "./pages/GED/index.js";
+import { Chamados } from "./pages/Chamados/Chamados.js";
 
 import "./App.css";
 
@@ -44,6 +45,11 @@ function App() {
                     <Route path="/app" element={<Navigation />}>
                         <Route index element={<Dashboard />} />
                         <Route path="dashboard" element={<Dashboard />} />
+
+                        <Route path="chamados">
+                            <Route index element={<Chamados />} />
+                        </Route>
+
                         <Route path="clientes">
                             <Route index element={<Customers />} />
                             <Route path="cadastro" element={<Register />} />
