@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 import {
     VStack,
     Breadcrumb,
@@ -9,19 +9,20 @@ import {
     Text,
     Spinner,
     Tag,
+    Flex,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import { listUsers, deleteUser } from "./api";
-import CreateUser from "./createUserModal";
-import useUserStore from "../../stores/user";
-import UpdateUser from "./updateUserModal";
-import useDarkMode from "../../stores/useDarkMode";
+import { listUsers, deleteUser } from "./api.js";
+import CreateUser from "./createUserModal.js";
+import useUserStore from "../../stores/user.js";
+import UpdateUser from "./updateUserModal.js";
+import useDarkMode from "../../stores/useDarkMode.js";
 import { useNavigate } from "react-router-dom";
-import { notify } from "../../components/notify";
-import ConfirmDeletion from "../../components/ConfirmDeletionModal";
-import UpdateSelfUser from "./updateSelfModal";
-import { PermissoesModal } from "./permissoesModal";
-import { AccessDenied } from "../../components/AccessDenied";
+import { notify } from "../../components/notify.js";
+import ConfirmDeletion from "../../components/ConfirmDeletionModal.js";
+import UpdateSelfUser from "./updateSelfModal.js";
+import { PermissoesModal } from "./permissoesModal.js";
+import { AccessDenied } from "../../components/AccessDenied.js";
 import { ContactsModal } from "./contactsModal.js";
 
 export default function Users() {
@@ -78,7 +79,7 @@ export default function Users() {
     );
 }
 
-function UserCard({ user, reloadData, users }) {
+function UserCard({ user, reloadData }) {
     const navigate = useNavigate();
     const permissions = useUserStore((state) => state.permissions);
 
@@ -100,11 +101,14 @@ function UserCard({ user, reloadData, users }) {
                 padding: "10px",
                 borderRadius: "5px",
             }}
+            display={{ base: "block", sm: "flex" }}
+            justifyContent={{ sm: "space-between" }}
+            gap={3}
             backgroundColor={colors.bg}
             transition="1s ease"
         >
             <Avatar name={user.name} />
-            <VStack justifyContent="left" alignItems="left" rowGap="0">
+            <VStack justifyContent="left" mr={{ sm: "auto" }} alignItems="left" rowGap="0">
                 <Text fontSize="xl" color={colors.text}>
                     {user.name}
                 </Text>
@@ -112,22 +116,34 @@ function UserCard({ user, reloadData, users }) {
                     {user.email}
                 </Text>
             </VStack>
-            <Tag colorScheme={user.enabled ? "linkedin" : "red"} ml="auto">
-                {user.enabled ? "Habilitado" : "Desabilitado"}
-            </Tag>
-            {email === user.email ? (
-                <>
-                    <UpdateSelfUser user={user} reloadData={reloadData} />
-                </>
-            ) : permissions.usuarios === 2 ? (
-                <>
-                    <ConfirmDeletion entity="usuário" text="" handleDeletion={handleDeletion} />
-                    <UpdateUser user={user} reloadData={reloadData} />
-                    <PermissoesModal user={user} reloadData={reloadData} permissions={user.permissions} />
-                </>
-            ) : null}
-
-            <ContactsModal user={user} reloadData={reloadData} />
+            <Flex flexDirection={{ base: "column" }} justifyContent={"center"} alignItems={{ sm: "end" }}>
+                <Tag
+                    colorScheme={user.enabled ? "linkedin" : "red"}
+                    ml={{ base: "0", sm: "0", md: "auto" }}
+                    my={1}
+                    w={"100px"}
+                    textAlign={"center"}
+                >
+                    {user.enabled ? "Habilitado" : "Desabilitado"}
+                </Tag>
+                {email === user.email ? (
+                    <Flex>
+                        <UpdateSelfUser user={user} reloadData={reloadData} />
+                        <Flex mx={2}>
+                            <ContactsModal user={user} reloadData={reloadData} />
+                        </Flex>
+                    </Flex>
+                ) : permissions.usuarios === 2 ? (
+                    <Flex gap={2}>
+                        <ConfirmDeletion entity="usuário" text="" handleDeletion={handleDeletion} mt={0} />
+                        <UpdateUser user={user} reloadData={reloadData} />
+                        <PermissoesModal user={user} reloadData={reloadData} permissions={user.permissions} />
+                        <Flex alignItems={{ sm: "end" }} my={{ base: 0, sm: 0 }}>
+                            <ContactsModal user={user} reloadData={reloadData} />
+                        </Flex>
+                    </Flex>
+                ) : null}
+            </Flex>
         </HStack>
     );
 }

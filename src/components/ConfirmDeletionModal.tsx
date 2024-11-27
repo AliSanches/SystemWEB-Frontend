@@ -12,7 +12,7 @@ import {
     ModalCloseButton,
 } from "@chakra-ui/react";
 import { FiAlertTriangle } from "react-icons/fi";
-import useDarkMode from "../stores/useDarkMode";
+import useDarkMode from "../stores/useDarkMode.js";
 import { useState } from "react";
 
 const ConfirmDeletion = ({ entity, text, handleDeletion, mt }) => {

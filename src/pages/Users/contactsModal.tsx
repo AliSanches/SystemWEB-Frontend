@@ -68,7 +68,7 @@ export const ContactsModal = ({ user, reloadData }) => {
         <>
             <IconButton size="sm" onClick={onOpen} icon={<FiUsers />} aria-label="Contatos" />
             <Modal isCentered isOpen={isOpen} onClose={onClose}>
-                <ModalContent w={"50vw"} backgroundColor={colors.bg}>
+                <ModalContent w={{ base: "260px", sm: "50vh" }} backgroundColor={colors.bg}>
                     <ModalHeader>
                         <Text>Contatos</Text>
                         <ModalCloseButton />
@@ -76,7 +76,7 @@ export const ContactsModal = ({ user, reloadData }) => {
                     <ModalBody>
                         <VStack>
                             {!loading && (
-                                <HStack w="100%">
+                                <HStack w="100%" display={"flex"} flexDirection={"column"} alignItems={"initial"}>
                                     <Select
                                         isDisabled={availableContacts.length == 0}
                                         onChange={(event) => setSelected(+event.target.value)}
@@ -102,7 +102,7 @@ export const ContactsModal = ({ user, reloadData }) => {
                             ))}
                         </VStack>
                     </ModalBody>
-                    <ModalFooter>
+                    <ModalFooter mr={"auto"}>
                         <Button onClick={onClose}>Voltar</Button>
                     </ModalFooter>
                 </ModalContent>
@@ -131,6 +131,8 @@ const Contact = ({ contact, reloadData, onClose }) => {
 
     return (
         <HStack
+            display={"flex"}
+            gap={3}
             css={{
                 width: "100%",
                 padding: "10px",
@@ -139,7 +141,7 @@ const Contact = ({ contact, reloadData, onClose }) => {
             backgroundColor={colors.darkerbg}
             transition="1s ease"
         >
-            <Text fontSize="md" color={colors.text}>
+            <Text mr={"auto"} fontSize="md" color={colors.text}>
                 {contact.name}
             </Text>
             <ConfirmDeletion entity="usuário" text="" handleDeletion={handleDeletion} />

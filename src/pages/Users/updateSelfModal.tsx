@@ -14,10 +14,10 @@ import {
     ModalCloseButton,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { updateUser } from "./api";
-import useDarkMode from "../../stores/useDarkMode";
+import { updateUser } from "./api.js";
+import useDarkMode from "../../stores/useDarkMode.js";
 import { useNavigate } from "react-router-dom";
-import { notify } from "../../components/notify";
+import { notify } from "../../components/notify.js";
 
 export default function UpdateSelfUser({ reloadData, user }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -52,7 +52,7 @@ export default function UpdateSelfUser({ reloadData, user }) {
 
     return (
         <>
-            <Button size="sm" marginLeft="auto" colorScheme={"linkedin"} onClick={onOpen}>
+            <Button size="sm" marginLeft={{ base: "0", sm: "auto" }} colorScheme={"linkedin"} onClick={onOpen}>
                 Minha Conta
             </Button>
             <Modal isOpen={isOpen} onClose={onClose} isCentered>
